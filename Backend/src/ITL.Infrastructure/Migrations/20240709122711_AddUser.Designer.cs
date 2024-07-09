@@ -4,6 +4,7 @@ using ITL.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITL.Infrastructure.Migrations
 {
     [DbContext(typeof(KCTestContext))]
-    partial class KCTestContextModelSnapshot : ModelSnapshot
+    [Migration("20240709122711_AddUser")]
+    partial class AddUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +36,7 @@ namespace ITL.Infrastructure.Migrations
                     b.Property<DateTime>("Date")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 7, 9, 14, 36, 23, 467, DateTimeKind.Local).AddTicks(4121));
+                        .HasDefaultValue(new DateTime(2024, 7, 9, 14, 27, 11, 520, DateTimeKind.Local).AddTicks(2788));
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -114,16 +117,6 @@ namespace ITL.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "admin@gmail.com",
-                            Name = "Admin",
-                            Password = "123456",
-                            Role = "admin"
-                        });
                 });
 
             modelBuilder.Entity("ITL.Domain.Entities.Permission", b =>

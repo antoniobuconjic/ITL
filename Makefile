@@ -25,7 +25,7 @@ add-migration:
 	dotnet ef migrations add $(name) --project Backend/src/ITL.Infrastructure --startup-project Backend/src/ITL.API
 
 remove-migration:
-	dotnet ef migrations remove --project Backend/src/ITL.Infrastructure/ITL.Infrastructure.csproj
+	dotnet ef migrations remove --project Backend/src/ITL.Infrastructure/ITL.Infrastructure.csproj --startup-project Backend/src/ITL.API
 
 clean:
 	dotnet clean

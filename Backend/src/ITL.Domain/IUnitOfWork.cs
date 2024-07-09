@@ -8,5 +8,6 @@ public interface IUnitOfWork : IDisposable
 {
     IPermissionRepository PermissionRepository { get; set; }
     IPermissionTypeRepository PermissionTypeRepository { get; set; }
+    IUserRepository UserRepository { get; set; }
     Task<int> SaveAsync();
 }

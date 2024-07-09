@@ -17,7 +17,8 @@ public static class UnitOfWorkExtension
             return new UnitOfWork(
                 context,
                 new PermissionRepository(context.Permissions),
-                new PermissionTypeRepository(context.PermissionTypes)
+                new PermissionTypeRepository(context.PermissionTypes),
+                new UserRepository(context.Users)
             );
         });
         return serviceCollection;
