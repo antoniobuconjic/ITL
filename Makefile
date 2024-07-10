@@ -37,6 +37,6 @@ build:
 	dotnet build
 
 test:
-	dotnet test
+	dotnet test Backend/src/ITL.Tests
 
 .PHONY: run-backend docker-sql-setup docker-sql-down migrate add-migration remove-migration clean restore build test

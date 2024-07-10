@@ -51,6 +51,11 @@ public class UserService : IUserService
 
     public async Task<UserDto> GetUser(int userId)
     {
+        var exists = await _unitOfWork.UserRepository.ExistAsync(x => x.Id == userId);
+        if (!exists)
+        {
+            throw new NotFoundException("User not found");
+        }
         var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
         return _mapper.Map<UserDto>(user);
     }
